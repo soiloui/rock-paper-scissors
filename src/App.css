@@ -29,8 +29,6 @@
 	background: transparent;
 	border: none;
 	border-bottom: 1px solid #fff;
-
-	/* transition: background 0.2s ease-in-out; */
 }
 
 .nick-form__input:focus {
