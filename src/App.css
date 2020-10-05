@@ -1,38 +1,125 @@
 .App {
-  text-align: center;
+	text-align: center;
+	background-color: #282c34;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	color: white;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* -------------- NICK FORM -------------- */
+.nick-form {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	font-size: calc(10px + 1.5vmin);
+}
+.nick-form__input {
+	width: 150px;
+	margin-left: 1em;
+
+	font-size: calc(10px + 1vmin);
+	font-family: inherit;
+	text-align: center;
+	color: inherit;
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid #fff;
+
+	/* transition: background 0.2s ease-in-out; */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nick-form__input:focus {
+	outline: none;
+
+	animation-name: inputBG;
+	animation-duration: 4s;
+	animation-iteration-count: infinite;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@keyframes inputBG {
+	0% {
+		background-color: transparent;
+	}
+	40% {
+		background-color: rgba(255, 255, 255, 0.2);
+	}
+	100% {
+		background-color: transparent;
+	}
 }
 
-.App-link {
-  color: #61dafb;
+/* -------------- STATUS OF GAME -------------- */
+.status {
+	padding: 1em;
+
+	transition: all 0.2s ease-out;
+	transform: scale(1);
+}
+.status-win {
+	color: seagreen;
+}
+.status-tie {
+	color: goldenrod;
+}
+.status-lose {
+	color: rgb(255, 38, 0);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.status-win,
+.status-tie,
+.status-lose {
+	transform: scale(1.1);
+}
+
+/* -------------- PAPER SCISSORS ROCK -------------- */
+.game-pool {
+	display: flex;
+	justify-content: center;
+}
+
+.option-box {
+	width: 100px;
+	margin: 0 1em;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.option-box:hover > img {
+	transform: scale(1.07);
+	box-shadow: 0px 0px 10px 2px rgba(255, 255, 255, 0.7);
+}
+
+img {
+	width: 100%;
+	object-fit: cover;
+	border-radius: 50%;
+	transition: all 0.25s ease-out;
+}
+
+/* -------------- SCORES -------------- */
+.scores {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding: 1em;
+
+	font-size: calc(10px + 1.5vmin);
+}
+.scores em {
+	font-weight: 600;
+}
+
+.score {
+	display: flex;
+	align-items: center;
+	max-width: 40%;
+	word-break: break-all;
+}
+.score__colon {
+	padding: 0 0.5em;
 }
